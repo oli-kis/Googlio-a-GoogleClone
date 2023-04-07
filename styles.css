@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@300&display=swap");
+:root {
+  font-family: "Roboto", sans-serif;
+  --searchBarBorderRadius: 1rem;
+}
+body {
+  /*background-color: RGB(32, 33, 36);*/
+  margin: 0;
+}
+.body__default {
+  background-image: url("img/background-image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.body__results {
+  background-color: RGB(32, 33, 36);
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav a {
+  margin: 1rem;
+  color: white;
+  text-decoration: none;
+}
+nav :hover {
+  text-decoration: underline;
+}
+nav i {
+  margin: 1rem;
+  font-size: 20px;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+nav i:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+nav img {
+  margin: 1rem;
+}
+nav img:hover {
+  cursor: pointer;
+}
+form {
+  margin: 0;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
+}
+
+.content .searchField:valid {
+  border-radius: 0;
+  border-top-left-radius: var(--searchBarBorderRadius);
+  border-top-right-radius: var(--searchBarBorderRadius);
+}
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+.searchField {
+  width: 70vh;
+  height: 2.5rem;
+  border-radius: 1.6rem;
+  padding-left: 3.2rem;
+  border-color: rgb(128, 128, 128);
+  caret-color: rgb(41, 41, 41);
+  font-size: 1.1rem;
+  border-style: hidden;
+}
+.searchField:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 15px #9ecaed;
+}
+.searchField:hover {
+  border-color: #9ecaed;
+  box-shadow: 0 0 15px #9ecaed;
+}
+
+.fa-magnifying-glass {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 50px 0px 50px;
+  width: 100vh;
+  height: 10vh;
+}
+.logoSmall {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  margin-right: 2.5rem;
+  background-image: linear-gradient(
+    90deg,
+    rgba(144, 32, 254, 1) 0%,
+    rgba(193, 108, 244, 1) 52%,
+    rgba(168, 11, 156, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.line {
+  width: 100%;
+  background-color: grey;
+  height: 1px;
+}
+.result-count {
+  color: grey;
+  margin: 10px 0px 5px 13%;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.result-item {
+  margin-left: 13%;
+  width: 40%;
+  margin-top: 1rem;
+}
+.url {
+  font-size: 1rem;
+  color: rgb(179, 179, 179);
+}
+.title {
+  font-size: 1.5rem;
+  color: RGB(137, 179, 247);
+  font-weight: 700;
+  text-decoration: none;
+}
+.title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.fa-ellipsis-vertical {
+  margin-left: 1rem;
+}
+.description {
+  margin-top: 5px;
+  color: rgb(179, 179, 179);
+}
+
+.suggestion {
+  font-weight: 600;
+  color: black;
+  height: auto;
+  padding: 0.8rem;
+  padding-left: 3rem;
+  background-color: white;
+  font-size: 1rem;
+}
+.suggestion:hover {
+  background-color: rgb(202, 202, 202);
+  cursor: default;
+}
+.suggestion:last-child {
+  border-radius: 0;
+  border-bottom-left-radius: var(--searchBarBorderRadius);
+  border-bottom-right-radius: var(--searchBarBorderRadius);
+}
+#resultList {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  width: 70vh;
+}
+
+.link-grid {
+  display: grid;
+  column-gap: 5px;
+  row-gap: 5px;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 2rem;
+}
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.grid-item:hover {
+  background-color: rgba(255, 255, 255, 0.105);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.grid-item a {
+  background-color: white;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+.link-name {
+  color: white;
+  margin-top: 10px;
+}
+.grid-item a i {
+  font-size: 1.5rem;
+}
+.twitter-pic {
+  width: 27px;
+}
+.grid-item img {
+  max-width: 30px;
+  height: 25px;
+}
+.fa-youtube {
+  color: red;
+}
+.fa-facebook {
+  color: RGB(12, 136, 239);
+}
+.fa-twitter {
+  color: RGB(29, 155, 240);
+}
+.fa-instagram {
+  color: RGB(130, 10, 241);
+}
+.fa-snapchat {
+  color: black;
+}
+.fa-whatsapp {
+  color: RGB(66, 234, 96);
+}
+.fa-spotify {
+  color: RGB(24, 216, 96);
+}
+.fa-discord {
+  color: RGB(88, 101, 242);
+}
+.fa-twitch {
+  color: RGB(109, 37, 153);
+}
+.fa-reddit {
+  color: RGB(255, 69, 0);
+}
+.profile-img {
+  border-radius: 50%;
+  width: 40px;
+}
+
+/* Verlauf.html */
+.history-container {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.history__logo {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  margin: 1rem;
+}
+.history__logo a {
+  text-decoration: none;
+  color: white;
+}
+.history {
+  background-color: white;
+  /*background-color: rgb(53, 54, 57);*/
+  width: 50vw;
+  border-radius: 5px;
+}
+.history__result {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+.history__img {
+  width: 20px;
+  margin-left: 5px;
+}
+.history__title {
+  width: 20%;
+  text-align: right;
+  color: black;
+}
+.history__url {
+  width: 20%;
+  text-align: center;
+  color: rgb(179, 179, 179);
+}
+.history__icon {
+  width: 60%;
+  text-align: right;
+  color: rgb(103, 103, 103);
+}
+.history__icon i {
+  padding: 12px 18px;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+.history__icon i:hover {
+  background-color: rgba(158, 158, 158, 0.441);
+  padding: 12px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -1,0 +1,110 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="/img/googlio-logo1.ico" />
+    <script
+      src="https://kit.fontawesome.com/ac9feb079a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Googlio</title>
+  </head>
+  <body class="body__default">
+    <nav>
+      <a href="verlauf.html">Verlauf</a>
+      <a href="">Gmail</a>
+      <a href="">Bilder</a>
+      <i class="fa-solid fa-braille"></i>
+      <img src="img/user-icon.jpg" alt="" class="profile-img" />
+    </nav>
+
+    <div class="content">
+      <div class="logo">Googlio</div>
+      <div class="searchBar" id="searchBar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <form action="results.html">
+          <input
+            oninput="SearchBar()"
+            id="search"
+            type="text"
+            class="searchField"
+            placeholder="Mit Googlio suchen"
+            required
+          />
+          <input type="submit" hidden />
+        </form>
+        <ul id="resultList" class="resultList"></ul>
+      </div>
+      <div class="link-grid">
+        <div class="grid-item">
+          <a href="https://www.youtube.com/"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+          <div class="link-name">Youtube</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.facebook.com/"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <div class="link-name">Facebook</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.twitter.com/"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png"
+              class="twitter-pic"
+              alt=""
+          /></a>
+          <div class="link-name">Twitter</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.instagram.com/"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
+              alt=""
+          /></a>
+          <div class="link-name">Instagram</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.snapchat.com/"
+            ><i class="fa-brands fa-snapchat"></i
+          ></a>
+          <div class="link-name">Snapchat</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.whatsapp.com/"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+          <div class="link-name">Whatsapp</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.spotify.com/"
+            ><i class="fa-brands fa-spotify"></i
+          ></a>
+          <div class="link-name">Spotify</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.discord.com/"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
+          <div class="link-name">Discord</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.twitch.tv/"
+            ><i class="fa-brands fa-twitch"></i
+          ></a>
+          <div class="link-name">Twitch</div>
+        </div>
+        <div class="grid-item">
+          <a href="https://www.reddit.com/"
+            ><i class="fa-brands fa-reddit"></i
+          ></a>
+          <div class="link-name">Reddit</div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
