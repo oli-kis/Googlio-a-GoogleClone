@@ -1,9 +1,20 @@
 //Quelle: https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database
 const { MongoClient } = require("mongodb");
+const express = require("express");
+let dbContext = [];
+const app = express();
+const port = 8383;
 
-const prompt = require("prompt-sync")();
-let again = true;
-let searchHistroy = [];
+app.use(express.static("public"));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Access-Control-Allow-Origin"
+  );
+  next();
+});
 
 async function main() {
   const uri =
@@ -14,15 +25,14 @@ async function main() {
     // Connect to the MongoDB cluster
     await client.connect();
 
-    while (again === true) {
-      const input = prompt("Search Googlio: ");
-      const inputLowerCase = input.toLowerCase();
-      const inputFinal =
-        inputLowerCase.charAt(0).toUpperCase() + inputLowerCase.slice(1);
-      await findOneListingName(client, inputFinal);
-      again = await searchAgain();
-      history(searchHistroy);
-    }
+    const database = client.db("daten");
+    const collection = database.collection("daten");
+
+    const cursor = collection.find();
+
+    await cursor.forEach((document) => {
+      dbContext.push(document);
+    });
   } catch (e) {
     console.error(e);
   } finally {
@@ -31,46 +41,9 @@ async function main() {
 }
 main().catch(console.error);
 
-async function findOneListingName(client, nameOfListing) {
-  const result = await client
-    .db("daten")
-    .collection("daten")
-    .findOne({ name: nameOfListing });
+app.get("/", (req, res) => {
+  res.send(dbContext);
+});
 
-  if (result) {
-    console.log(`Ein Ergebnis für ${nameOfListing} gefunden:`);
-    console.log("");
-    console.log("=======Titel=======");
-    console.log("");
-    console.log(result.name);
-    console.log("");
-    console.log("=======Beschreibung=======");
-    console.log("");
-    console.log(result.description);
-    console.log("");
-    console.log("=======Link=======");
-    console.log("");
-    console.log(result.link);
-    console.log("");
-    console.log("");
-    searchHistroy.push(result.name);
-  } else {
-    console.log(`Kein Eintrag gefunden: '${nameOfListing}'`);
-  }
-}
-
-async function searchAgain() {
-  const again = prompt("Möchten Sie nochmal suchen [y/n]: ");
-  if (again == "y") {
-    return true;
-  } else {
-    return false;
-  }
-}
-async function history(searchHistroy) {
-  const showHistory = prompt("Möchten Sie den Verlauf anzeigen [y/n]: ");
-  if (showHistory == "y") {
-    console.log(searchHistroy);
-  } else {
-  }
-}
+app.listen(port, () => console.log("Server started on port: " + port));
+//Rest Server

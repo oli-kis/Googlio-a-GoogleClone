@@ -11,35 +11,11 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="body__default">
+  <body class="body__default" onload="displayHistory()">
     <div class="history-container">
       <div class="history__logo"><a href="index.html">Googlio</a></div>
-      <div class="history">
-        <div class="history__result">
-          <img class="history__img" src="img/googlio-logo1.ico" alt="" />
-          <div class="history__title">Digitec</div>
-          <div class="history__url">www.digitec.ch</div>
-          <div class="history__icon">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-        </div>
-        <div class="history__result">
-          <img class="history__img" src="img/googlio-logo1.ico" alt="" />
-          <div class="history__title">Digitec</div>
-          <div class="history__url">www.digitec.ch</div>
-          <div class="history__icon">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-        </div>
-        <div class="history__result">
-          <img class="history__img" src="img/googlio-logo1.ico" alt="" />
-          <div class="history__title">Digitec</div>
-          <div class="history__url">www.digitec.ch</div>
-          <div class="history__icon">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-        </div>
-      </div>
+      <div class="history" id="history"></div>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>

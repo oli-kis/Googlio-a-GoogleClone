@@ -1,31 +1,44 @@
-let suchergebnisse = [
-  { name: "digitec" },
-  { name: "google" },
-  { name: "googlio" },
-  { name: "youtube" },
-  { name: "twitter" },
-  { name: "zalando" },
-  { name: "kaggle" },
-  { name: "twitch" },
-  { name: "snpachat" },
-  { name: "instagram" },
-  { name: "spotify" },
-  { name: "discord" },
-];
+const apiURL = "http://localhost:8383/";
+historyContainer = document.getElementById("history");
+
+let dbContext = [];
+let searchHistory = [];
+
+fetch(apiURL, {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+})
+  .then((response) => response.json())
+  .then((json) => {
+    json.forEach((element) => {
+      dbContext.push(element);
+    });
+  });
 
 function SearchBar() {
-  const searchText = document.getElementById("search").value.toLowerCase();
+  let searchText = document
+    .getElementById("search")
+    .value.charAt(0)
+    .toUpperCase();
   const filteredProducts = document.getElementById("resultList");
   document.getElementById("searchBar").append(filteredProducts);
 
   if (searchText) {
-    for (let i = 0; i < suchergebnisse.length; i++) {
+    for (let i = 0; i < dbContext.length; i++) {
       const suggestion = document.createElement("a");
       suggestion.className = "suggestion";
-      suggestion.textContent = suchergebnisse[i].name;
+      suggestion.textContent = dbContext[i].name;
+      suggestion.href = dbContext[i].link;
+      suggestion.target = "_blank";
 
       if (suggestion.textContent.startsWith(searchText)) {
         filteredProducts.appendChild(suggestion);
+        searchHistory.push(dbContext[i]);
+        localStorage.setItem("history", JSON.stringify(searchHistory));
+        console.log(searchHistory);
       }
       if (!suggestion.textContent.startsWith(searchText)) {
         removeProductFromSearch(suggestion.textContent);
@@ -58,4 +71,20 @@ function RemoveDoubledProducts() {
       }
     }
   }
+}
+
+function displayHistory() {
+  let searchHistoryDisplay = JSON.parse(localStorage.getItem("history"));
+  console.log(searchHistoryDisplay);
+  searchHistoryDisplay.forEach((element) => {
+    historyContainer.innerHTML += `
+    <div class="history__result">
+    <img class="history__img" src="img/googlio-logo1.ico" alt="" />
+    <div class="history__title">${element.name}</div>
+    <div class="history__url">${element.link}</div>
+    <div class="history__icon">
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+    </div>
+  </div>`;
+  });
 }
