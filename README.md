@@ -20,6 +20,13 @@ Um Googlio in Betrieb zu nehmen, laden Sie bitte zuerst das Repository als ZIP-F
 Öffnen Sie dananch ein neues Terminal und führen folgenden Befehl aus:
 
 ```javascript
+npm install
+```
+
+Dieser Befehl wird alle benötigten Module und Dateien herunterladen um das Projekt zu starten.
+Um den Server an sich zu starten führen Sie zum Schluss noch folgende Zeile Code aus:
+
+```javascript
 node conn.js
 ```
 Nun können Sie Googlio aufrufen und ganz normal verwenden.
