@@ -19,6 +19,6 @@ Ganz zum Schluss der Schleife wird der User abgefragt, ob er sich den Suchverlau
 Um Googlio in Betrieb zu nehmen, laden Sie bitte zuerst das Repository als ZIP-File herunter und öffnen es dann in VS Code.
 Öffnen Sie dananch ein neues Terminal und führen folgenden Befehl aus:
 
-```shell
+```javascript
 node conn.js
 ```
