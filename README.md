@@ -22,3 +22,4 @@ Um Googlio in Betrieb zu nehmen, laden Sie bitte zuerst das Repository als ZIP-F
 ```javascript
 node conn.js
 ```
+Nun können Sie Googlio aufrufen und ganz normal verwenden.
